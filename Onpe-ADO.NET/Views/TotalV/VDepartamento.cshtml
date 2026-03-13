@@ -1,20 +1,17 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ONPE - Participación Ciudadana</title>
+    <title>ONPE - Departamento</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="~/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/css/style.css" rel="stylesheet" />
 </head>
 <body>
 
     @await Html.PartialAsync("_Header")
-
     <div id="imprimelo3">
         <div class="container">
             <img src="~/images/f-participacion.jpg" width="1170" height="248" class="img-responsive mg30top">
@@ -51,9 +48,6 @@
                                             <img src="~/images/estadistico.png" class="img-responsive">
                                         </div>
                                         <div class="col-xs-12 col-md-6">
-                                            <div>
-
-                                            </div>
                                             <p class="subtitle">ELECTORES HÁBILES <span id="electoresHabiles">Cargando...</span></p>
                                             <table class="table09_2" cellspacing="0">
                                                 <thead>
@@ -63,31 +57,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody id="bodyVotos">
-                                                    
                                                 </tbody>
                                             </table>
                                         </div>
-                                </div>
-                                    <div class="col-xs-12 pbot30 ptop20">
-                                        <div class="col-xs-12 col-md-6">
-                                            <a href="#" id="btnExtranjero"><img src="~/images/icono_extranjero.jpg" class="img-responsive"></a>
-                                        </div>
-                                        <div class="col-xs-12 col-md-6">
-                                            <a href="#" id="btnNacional"><img src="~/images/icono_nacional.jpg" class="img-responsive"></a>
-                                        </div>
                                     </div>
                                 </div>
-                                <br />
-                                <div id="contenedorTabla">
-                                    
-                                </div>
+                                <div id="contenedorTabla"></div>
                             </div>
                         </div>
                     </section>
                 </div>
             </div>
 
-            @await Html.PartialAsync("_Footer")
-            <script src="~/js/TotalVotos.js"></script>
-        </body>
-    </html>
+    @await Html.PartialAsync("_Footer")
+    <script src="~/js/VDepartamento.js"></script>
+</body>
+</html>

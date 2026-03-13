@@ -68,5 +68,61 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Vistas
             }
             return _Lista;
         }
+
+        public async Task<List<MdlListaVotantes>> ListaVotosDepartamento(string Departamento)
+        {
+            List<MdlListaVotantes> _Lista = new List<MdlListaVotantes>();
+            using (var conexion = new SqlConnection(_CadenaSql))
+            {
+                await conexion.OpenAsync();
+                SqlCommand sql = new SqlCommand("usp_getVotosDepartamento", conexion);
+                sql.Parameters.AddWithValue("@Departamento", Departamento);
+                sql.CommandType = CommandType.StoredProcedure;
+                using (var rd = await sql.ExecuteReaderAsync())
+                {
+                    while (await rd.ReadAsync())
+                    {
+                        _Lista.Add(new MdlListaVotantes
+                        {
+                            Provincia = rd["DPD"].ToString().Trim(),
+                            TV = Convert.ToInt32(rd["TV"]),
+                            PTV = rd["PTV"].ToString().Trim(),
+                            TA = Convert.ToInt32(rd["TA"]),
+                            PTA = rd["PTA"].ToString().Trim(),
+                            EH = Convert.ToInt32(rd["EH"])
+                        });
+                    }
+                }
+            }
+            return _Lista;
+        }
+        public async Task<List<MdlListaVotantes>> ListaVotosProvincia(string Provincia)
+        {
+            List<MdlListaVotantes> _Lista = new List<MdlListaVotantes>();
+            using (var conexion = new SqlConnection(_CadenaSql))
+            {
+                await conexion.OpenAsync();
+                SqlCommand sql = new SqlCommand("usp_getVotosProvincia", conexion);
+                sql.Parameters.AddWithValue("@Provincia", Provincia);
+                sql.CommandType = CommandType.StoredProcedure;
+                using (var rd = await sql.ExecuteReaderAsync())
+                {
+                    while (await rd.ReadAsync())
+                    {
+                        _Lista.Add(new MdlListaVotantes
+                        {
+                            Distrito = rd["DPD"].ToString().Trim(),
+                            TV = Convert.ToInt32(rd["TV"]),
+                            PTV = rd["PTV"].ToString().Trim(),
+                            TA = Convert.ToInt32(rd["TA"]),
+                            PTA = rd["PTA"].ToString().Trim(),
+                            EH = Convert.ToInt32(rd["EH"])
+                        });
+                    }
+                }
+            }
+            return _Lista;
+        }
+
     }
 }

@@ -67,7 +67,13 @@ async function cargarVotosExtrajero() {
     const html = await response.text();
     document.getElementById("contenedorTabla").innerHTML = html;
 }
-
+document.getElementById("contenedorTabla").addEventListener("click", function (e) {
+    const fila = e.target.closest("tr");
+    if (fila) {
+        const departamento = fila.cells[0].textContent.trim();
+        window.location.href = `/TotalV/VistaDepartamentoV?departamento=${departamento}`;
+    }
+});
 document.addEventListener("DOMContentLoaded", cargarVotos);
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btnNacional").addEventListener("click", function (e) {

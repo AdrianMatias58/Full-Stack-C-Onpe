@@ -22,6 +22,58 @@ namespace Onpe_ADO.NET.Controllers
         {
             return View("participacion");
         }
+        [HttpGet("VistaDepartamentoV")]
+        public IActionResult VistaDepartamentoV()
+        {
+            return View("VDepartamento");
+        }
+        [HttpGet("VistaProvinciaV")]
+        public IActionResult VistaProvinciaV()
+        {
+            return View("VProvincia");
+        }
+        [HttpGet("VistaDistritroV")]
+        public IActionResult VistaDistritroV()
+        {
+            return View("VistaDistritro");
+        }
+        [HttpGet("GetTotalVProvincia")]
+        public async Task<IActionResult> GetTotalVProvincia(string provincia)
+        {
+            try
+            {
+                var Datos = await _repoListaV.ListaVotosProvincia(provincia);
+                return Json(Datos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    mensaje = ex.Message,
+                    detalle = ex.InnerException?.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+
+        }
+        [HttpGet("GetTotalVDepartamento")]
+        public async Task<IActionResult> GetTotalVDepartamento(string Departamento) {
+            try
+            {
+                var Datos = await _repoListaV.ListaVotosDepartamento(Departamento);
+                return Json(Datos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    mensaje = ex.Message,
+                    detalle = ex.InnerException?.Message,
+                    stackTrace = ex.StackTrace
+                });
+            }
+
+        }
         [HttpGet("GetTotalVotos")]
         public async Task<IActionResult> GetTotalVotos()
         {
