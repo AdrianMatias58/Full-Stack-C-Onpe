@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MdlListaVotantes>
+
+<div class="col-xs-12 ptop20">
+    <div style="background-color: #b8960c; border-radius: 20px;
+        padding: 8px 20px; display: inline-block; margin-bottom: 15px;">
+        <span style="color: white; font-weight: bold; letter-spacing: 1px;">
+            CONSULTA DE PARTICIPACIÓN DETALLADO
+        </span>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" cellspacing="0" style="text-align:center;">
+            <thead>
+                <tr style="background-color: #f5f5f5;">
+                    <th style="text-align:center;">DEPARTAMENTO / Continente </th>
+                    <th style="text-align:center;">TOTAL<br />ASISTENTES</th>
+                    <th style="text-align:center;">% TOTAL<br />ASISTENTES</th>
+                    <th style="text-align:center;">TOTAL<br />AUSENTES</th>
+                    <th style="text-align:center;">% TOTAL<br />AUSENTES</th>
+                    <th style="text-align:center;">ELECTORES<br />HÁBILES</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Departamento</td>
+                        <td>@String.Format("{0:N0}", item.TV)</td>
+                        <td>@item.PTV</td>
+                        <td>@String.Format("{0:N0}", item.TA)</td>
+                        <td>@item.PTA</td>
+                        <td>@String.Format("{0:N0}", item.EH)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
