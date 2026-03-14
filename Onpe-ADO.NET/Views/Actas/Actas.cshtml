@@ -1,0 +1,140 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ONPE - Actas por Ubigeo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    @await Html.PartialAsync("_Header")
+
+    <div id="imprimelo3">
+        <div class="container">
+            <img src="~/images/f-actas.jpg" width="1170" height="248" class="img-responsive mg30top">
+
+                <section class="menu navbar-default menu05">
+                    <nav class="navbar-collapse bs-navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="bt-azul"><a href="#">PRESIDENCIAL</a></li>
+                            <li class="bt-amarillo act-amarillo"><a href="/Actas/ActUbigeo">ACTAS</a></li>
+                            <li class="bt-rojo"><a href="/TotalV/Index">PARTICIPACIÓN CIUDADANA</a></li>
+                        </ul>
+                    </nav>
+                </section>
+                <br /><br /><br /><br />
+
+                <section class="contenedor">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-md-3">
+                            <div class="menu-interna">
+                                <ul>
+                                    <li><a href="/Actas/ActUbigeo" class="act-izq">Actas por ubigeo</a></li>
+                                    <li><a href="/Actas/ActNumero">Actas por número</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-9" id="impreso">
+                            <div class="contenido-interna">
+
+                                <div class="titulos col-xs-12">
+                                    <div class="col-xs-11">
+                                        <h3>
+                                            <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true" style="font-size:19px"></span>
+                                            SEGUNDA ELECCIÓN PRESIDENCIAL 2016: ACTAS POR UBIGEO
+                                        </h3>
+                                    </div>
+                                    <div class="col-xs-1 oculto-boton-print">
+                                        <button onclick="printContent('impreso');"><i class="fa fa-print ico-print"></i></button>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 centered">
+                                    <div class="col-xs-12 col-md-12 col-lg-12 cont-curv">
+                                        <div class="col-xs-3 col-md-1">
+                                            <span class="glyphicon glyphicon-ok-circle ico-info" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="col-xs-9 col-md-11">
+                                            <ul>
+                                                <li>ACTUALIZADO EL 20/06/2016 A LAS 19:16 h</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 td34up">
+
+                                    <!-- FILA 1: Ambito | Departamento | Provincia -->
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="control-label">Ámbito:</label>
+                                                <select id="cdgoAmbito" name="cdgoAmbito" class="form-control">
+                                                    <option value="">--SELECCIONE--</option>
+                                                    <option value="PERU">PERÚ</option>
+                                                    <option value="EXTRANJERO">EXTRANJERO</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label id="lblDepartamento" class="control-label">Departamento:</label>
+                                                <select id="cdgoDep" name="cdgoDep" class="form-control" disabled>
+                                                    <option value="">--SELECCIONE--</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label id="lblProvincia" class="control-label">Provincia:</label>
+                                                <select id="cdgoProv" name="cdgoProv" class="form-control" disabled>
+                                                    <option value="">--SELECCIONE--</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- FILA 2: Distrito | Locales -->
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label id="lblDistrito" class="control-label">Distrito:</label>
+                                                <select id="cdgoDist" name="cdgoDist" class="form-control" disabled>
+                                                    <option value="">--SELECCIONE--</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="control-label">Locales:</label>
+                                                <select id="actas_ubigeo" name="actas_ubigeo" class="form-control" disabled>
+                                                    <option value="">--SELECCIONE--</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Detalle de mesas -->
+                                    <div id="divDetalle" class="ptop20"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
+        <script src="~/js/ActUbigeo.js"></script>
+
+    </body>
+</html>
