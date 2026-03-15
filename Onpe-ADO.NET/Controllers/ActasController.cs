@@ -57,7 +57,6 @@ namespace Onpe_ADO.NET.Controllers
             var datos = await _repoL.GetMdlProvincia(idDepartamento);
             return Json(datos);
         }
-
         [HttpGet("GetLocalVotacion")]
         public async Task<IActionResult> GetLocalV(int idDistrito)
         {
