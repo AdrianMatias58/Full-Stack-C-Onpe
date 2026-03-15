@@ -51,7 +51,7 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Tablas
                     {
                         _Lista.Add(new MdlDistrito
                         {
-                            idDistrito = Convert.ToInt32(rd["idDepartamento"]),
+                            idDistrito = Convert.ToInt32(rd["idDistrito"]),
                             Detalle = rd["Detalle"].ToString().Trim()
                         });
                     }
@@ -67,7 +67,7 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Tablas
             using (var conexion = new SqlConnection(_CadenaSql))
             {
                 await conexion.OpenAsync();
-                SqlCommand sql = new SqlCommand("usp_GetProvincias", conexion);
+                SqlCommand sql = new SqlCommand("usp_getProvincias", conexion);
                 sql.Parameters.AddWithValue("@idDepartamento", idDepartamento);
                 sql.CommandType = CommandType.StoredProcedure;
                 using (var rd = await sql.ExecuteReaderAsync())
@@ -76,7 +76,7 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Tablas
                     {
                         _Lista.Add(new MdlProvincia
                         {
-                            idProvincia = Convert.ToInt32(rd["idDepartamento"]),
+                            idProvincia = Convert.ToInt32(rd["idProvincia"]),
                             Detalle = rd["Detalle"].ToString().Trim()
                         });
                     }
@@ -92,7 +92,7 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Tablas
             using (var conexion = new SqlConnection(_CadenaSql))
             {
                 await conexion.OpenAsync();
-                SqlCommand sql = new SqlCommand("usp_getLocalVotacion", conexion);
+                SqlCommand sql = new SqlCommand("usp_getLocalesVotacion", conexion);
                 sql.Parameters.AddWithValue("@idDistrito", idDistrito);
                 sql.CommandType = CommandType.StoredProcedure;
                 using (var rd = await sql.ExecuteReaderAsync())
@@ -102,9 +102,7 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Tablas
                         _Lista.Add(new MdlLocal
                         {
                             idLocalVotacion = Convert.ToInt32(rd["idLocalVotacion"]),
-                            idDistrito = Convert.ToInt32(rd["idDistrito"]),
-                            RazonSocial = rd["RazonSocial"].ToString().Trim(),
-                            Direccion = rd["Direccion"].ToString().Trim()
+                            RazonSocial = rd["RazonSocial"].ToString()
                         });
                     }
                 }

@@ -2,8 +2,13 @@
 {
     public class MdlGrupoVotacion
     {
+        public string Departamento { get; set; }
+        public string Provincia { get; set; }
+        public string Distrito { get; set; }
+        public string RazonSocial { get; set; }
+        public string Direccion { get; set; }
+
         public int idLocalVotacion { get; set; }
-        public MdlLocal refLocal { get; set; }
         public string idGrupoVotacion { get; set; }
         public string nCopia { get; set; }
         public int idEstadoActa { get; set; }

@@ -11,9 +11,11 @@ namespace Onpe_ADO.NET.Controllers
     public class ActasController : Controller
     {
         private readonly RepoLugares _repoL;
+        private readonly RepoGrupoVotacion _repoG;
         public ActasController( IConfiguration configuration)
         {
             _repoL= new RepoLugares(configuration);
+            _repoG = new RepoGrupoVotacion(configuration);
 
         }
         [HttpGet("ActUbigeo")]
@@ -24,7 +26,7 @@ namespace Onpe_ADO.NET.Controllers
         [HttpGet("ActNumero")]
         public IActionResult ActNumero()
         {
-            return View();
+            return View("ActasNumero");
         }
         [HttpGet("GetDepartamento")]
         public async Task<IActionResult> GetDepartamento(string ambito)
@@ -63,6 +65,23 @@ namespace Onpe_ADO.NET.Controllers
             var datos = await _repoL.getLocalVotacion(idDistrito);
             return Json(datos);
         }
+        [HttpGet("GetGruposVotacion")]
+        public async Task<IActionResult> GetGruposV(int idLocalVotacion)
+        {
+            var datos = await _repoG.GetMdlGrupoByLocal(idLocalVotacion);
+            return Json(datos);
+        }
 
+        [HttpGet("GetDetalleGrupoV")]
+        public async Task<IActionResult> GetDetalleActa(String idGrupoVotacion)
+        {
+
+            var modelo = await _repoG.GetMdlGrupo(idGrupoVotacion);
+
+            if (modelo == null) return NotFound();
+
+            return PartialView("_DetalleActa", modelo);
+        }
     }
+
 }

@@ -72,7 +72,7 @@
 
                                 <div class="col-xs-12 td34up">
 
-                                    <!-- FILA 1: Ambito | Departamento | Provincia -->
+                                    
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -102,7 +102,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- FILA 2: Distrito | Locales -->
+                                    
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -122,9 +122,21 @@
                                         </div>
                                     </div>
 
-                                    <!-- Detalle de mesas -->
-                                    <div id="divDetalle" class="ptop20"></div>
+                                    <div id="divDetalle" class="ptop20" style="display:none;">
+                                        <div class="col-xs-12 pbot30">
+                                            <p class="subtitle">LISTADO DE MESAS</p>
+                                            <div id="page-wrap">
+                                                <table class="table17" cellspacing="0">
+                                                    <tbody id="tbodyMesas">
 
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="GrupoVotacion">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +146,7 @@
         </div>
 
         @await Html.PartialAsync("_Footer")
-        <script src="~/js/"></script>
-
+        <script src="~/js/ActasBJ.js"></script>
+        <script src="~/js/Actas-Votacion.js"></script>
     </body>
 </html>

@@ -1,0 +1,123 @@
+﻿@model Onpe_ADO.NET.Models.Tablas.MdlGrupoVotacion
+
+<div class="row">
+    <div class="col-md-3">
+        <div style="background-color:#d3d3d3; height:220px; display:flex;
+            align-items:center; justify-content:center;
+            font-size:20px; font-weight:bold; color:#555; text-align:center;">
+            <p>ACTA<br />SIN<br />IMAGEN</p>
+        </div>
+        <p style="font-size:11px; color:#666; margin-top:8px;">
+            Si requiere la imagen del acta, solicítela a través del
+            procedimiento de acceso a la información pública.
+        </p>
+    </div>
+    <div class="col-md-9">
+        <p class="subtitle">ACTA ELECTORAL</p>
+        <table class="table04">
+            <thead>
+                <tr>
+                    <th>Mesa N°</th>
+                    <th>N° Copia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">@Model.idGrupoVotacion</td>
+                    <td class="text-center">@Model.nCopia</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="subtitle">INFORMACIÓN UBIGEO</p>
+        <table class="table04">
+            <thead>
+                <tr>
+                    <th>DEPARTAMENTO</th>
+                    <th>PROVINCIA</th>
+                    <th>DISTRITO</th>
+                    <th>LOCAL DE VOTACIÓN</th>
+                    <th>DIRECCIÓN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Departamento</td>
+                    <td>@Model.Provincia</td>
+                    <td>@Model.Distrito</td>
+                    <td>@Model.RazonSocial</td>
+                    <td>@Model.Direccion</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="subtitle">INFORMACIÓN MESA</p>
+        <table class="table04">
+            <thead>
+                <tr>
+                    <th>ELECTORES HÁBILES</th>
+                    <th>TOTAL VOTANTES</th>
+                    <th>ESTADO DEL ACTA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">@Model.ElectoresHabiles</td>
+                    <td class="text-center">@Model.TotalVotantes</td>
+                    <td class="text-center">
+                        @switch (Model.idEstadoActa)
+                        {
+                            case 1:
+                                <text>ACTA ELECTORAL NORMAL</text>
+                                break;
+                            case 2:
+
+                                <text>ACTA ELECTORAL OBSERVADA</text>
+                                break;
+                            default:
+
+                                <text>SIN PROCESAR</text>
+                                break;
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div class="row ptop20">
+    <div class="col-md-12">
+        <p class="subtitle">LISTA DE RESOLUCIONES</p>
+        <div class="resolu">
+            <div>
+                <i class="fa fa-info-circle" style="color:#687999;"></i>
+                No hay resoluciones para el acta seleccionada
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row ptop20 pbot30">
+    <div class="col-md-12">
+        <p class="subtitle">INFORMACIÓN DEL ACTA ELECTORAL</p>
+        <table class="table04">
+            <thead>
+                <tr>
+                    <th style="text-align:left;">ORGANIZACIÓN POLÍTICA</th>
+                    <th>TOTAL DE VOTOS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>PERUANOS POR EL CAMBIO</td><td class="text-center">@Model.P1</td></tr>
+                <tr><td>FUERZA POPULAR</td>        <td class="text-center">@Model.P2</td></tr>
+                <tr><td>VOTOS EN BLANCO</td>       <td class="text-center">@Model.VotosBlancos</td></tr>
+                <tr><td>VOTOS NULOS</td>            <td class="text-center">@Model.VotosNulos</td></tr>
+                <tr><td>VOTOS IMPUGNADOS</td>       <td class="text-center">@Model.VotosImpugnados</td></tr>
+                <tr>
+                    <td><strong>TOTAL DE VOTOS EMITIDOS</strong></td>
+                    <td class="text-center"><strong>@Model.TotalVotantes</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
