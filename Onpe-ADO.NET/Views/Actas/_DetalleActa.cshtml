@@ -84,7 +84,6 @@
 
     </div>
 </div>
-
 <div class="row ptop20">
     <div class="col-md-12">
         <p class="subtitle">LISTA DE RESOLUCIONES</p>
@@ -96,7 +95,6 @@
         </div>
     </div>
 </div>
-
 <div class="row ptop20 pbot30">
     <div class="col-md-12">
         <p class="subtitle">INFORMACIÓN DEL ACTA ELECTORAL</p>
@@ -108,11 +106,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>PERUANOS POR EL CAMBIO</td><td class="text-center">@Model.P1</td></tr>
-                <tr><td>FUERZA POPULAR</td>        <td class="text-center">@Model.P2</td></tr>
-                <tr><td>VOTOS EN BLANCO</td>       <td class="text-center">@Model.VotosBlancos</td></tr>
-                <tr><td>VOTOS NULOS</td>            <td class="text-center">@Model.VotosNulos</td></tr>
-                <tr><td>VOTOS IMPUGNADOS</td>       <td class="text-center">@Model.VotosImpugnados</td></tr>
+                <tr><td>PERUANOS POR EL CAMBIO</td>
+                    <td class="text-center">@Model.P1</td>
+                </tr>
+                <tr>
+                    <td>FUERZA POPULAR</td>
+                    <td class="text-center">@Model.P2</td>
+                </tr>
+                <tr>
+                    <td>VOTOS EN BLANCO</td>
+                    <td class="text-center">@Model.VotosBlancos</td>
+                </tr>
+                <tr>
+                    <td>VOTOS NULOS</td>
+                    <td class="text-center">@Model.VotosNulos</td>
+                </tr>
+                <tr>
+                    <td>VOTOS IMPUGNADOS</td>       
+                    <td class="text-center">@Model.VotosImpugnados</td>
+                </tr>
                 <tr>
                     <td><strong>TOTAL DE VOTOS EMITIDOS</strong></td>
                     <td class="text-center"><strong>@Model.TotalVotantes</strong></td>
