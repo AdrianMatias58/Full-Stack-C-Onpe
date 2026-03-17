@@ -10,7 +10,7 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Vistas
         private readonly String _CadenaSql = "";
         public RepoTotalVotos (IConfiguration configuration)
         {
-            _CadenaSql = configuration.GetConnectionString("cadenaSQL");
+            _CadenaSql = configuration.GetConnectionString("ServerAzure");
         }
 
         public async Task<List<MdlTotalVotos>> Lista()
@@ -26,11 +26,11 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Vistas
                     while(await rd.ReadAsync()) {
                         _LisTotalVotantes.Add(new MdlTotalVotos
                         {
-                            TotalAsistentes = Convert.ToInt32(rd["TotalAsistentes"]),
-                            PorcentajeTotalAsistentes = rd["PorcentajeTotalAsistentes"].ToString(),
-                            TotalAusentes = Convert.ToInt32(rd["TotalAusentes"]),
-                            PorcentajeTotalAusentes = rd["PorcentajeTotalAusentes"].ToString(),
-                            ElectoresHabiles = Convert.ToInt32(rd["ElectoresHabiles"])
+                            TotalAsistentes = Convert.ToInt32(rd["Total Asistentes"]),
+                            PorcentajeTotalAsistentes = rd["% Total Asistentes"].ToString(),
+                            TotalAusentes = Convert.ToInt32(rd["Total Ausentes"]),
+                            PorcentajeTotalAusentes = rd["% Total Ausentes"].ToString(),
+                            ElectoresHabiles = Convert.ToInt32(rd["Electores H�biles"])
                         });
                     }
                 } 

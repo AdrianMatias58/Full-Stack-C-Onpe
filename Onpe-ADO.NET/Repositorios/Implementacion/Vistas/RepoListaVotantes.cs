@@ -10,7 +10,7 @@ namespace Onpe_ADO.NET.Repositorios.Implementacion.Vistas
         private readonly String _CadenaSql = "";
         public RepoListaVotantes(IConfiguration configuration)
         {
-            _CadenaSql = configuration.GetConnectionString("cadenaSQL");
+            _CadenaSql = configuration.GetConnectionString("ServerAzure");
         }
         public async Task<List<MdlListaVotantes>> ListaVotosPeru()
         {

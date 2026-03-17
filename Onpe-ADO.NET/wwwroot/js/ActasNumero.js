@@ -21,14 +21,9 @@ btnBuscar.addEventListener("click", async () => {
 
         const html = await response.text();
         divDetalle.innerHTML = html;
-        divDetalle.style.display = "block"; // ✅ Muestra el partial view
+        divDetalle.style.display = "block"; 
 
     } catch (error) {
         console.error("Error:", error);
     }
-});
-
-// También buscar al presionar Enter
-nroMesa.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") btnBuscar.click();
 });
